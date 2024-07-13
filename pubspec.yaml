@@ -47,6 +47,24 @@ dependencies:
   provider: ^6.1.2
   flutter_spinkit: ^5.2.1
   animated_text_kit: ^4.2.2
+  get_storage: ^2.1.1
+  flutter_native_splash: ^2.4.0
+  image_picker: ^1.1.1
+  font_awesome_flutter: ^10.7.0
+  pinput: ^4.0.0
+  flutter_slidable: ^3.1.0
+  tutorial_coach_mark: ^1.2.11
+  responsive_builder: ^0.7.0
+  smooth_page_indicator: ^1.1.0
+  shared_preferences: ^2.2.3
+  fluttertoast: ^8.2.6
+  accordion: ^2.6.0
+  google_maps_flutter: ^2.7.0
+  flutter_staggered_grid_view: ^0.7.0
+  persistent_bottom_nav_bar: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+  youtube_player_flutter: ^8.0.0
+
 
 dev_dependencies:
   flutter_test:
@@ -72,42 +90,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - lib/assets/svgs/bank.svg
-     - lib/assets/svgs/calendar.svg
-     - lib/assets/svgs/home.svg
-     - lib/assets/svgs/pie-chart.svg
-     - lib/assets/svgs/clipboard.svg
-     - lib/assets/svgs/credit-card.svg
-     - lib/assets/svgs/trophy.svg
-     - lib/assets/svgs/invoice.svg
-     - lib/assets/svgs/drop.svg
-     - lib/assets/svgs/salary.svg
-     - lib/assets/svgs/electricity.svg
-     - lib/assets/svgs/wifi.svg
-     - lib/assets/svgs/salary.svg
-     - lib/assets/svgs/ring.svg
-     - lib/assets/images/card.png
-     - lib/assets/images/ai.png
-     - lib/assets/svgs/bank.svg
-     - lib/assets/svgs/transfer.svg
-     - lib/assets/svgs/mac-action.svg
-     - lib/assets/svgs/document.svg
-     - lib/assets/svgs/ai.svg
-     - lib/assets/svgs/dashboard.svg
-     - lib/assets/svgs/simulation.svg
-     - lib/assets/svgs/user.svg
-     - lib/assets/svgs/settings.svg
-     - lib/assets/svgs/recommendation.svg
-     - lib/assets/svgs/earth.svg
-     - lib/assets/svgs/logout.svg
-     - lib/assets/images/EmailIcon.png
-     - lib/assets/images/lockIcon.png
-     - lib/assets/images/EyeIcon.png
-     - lib/assets/images/default-user.png
-     - lib/assets/images/chat_logo.png
-     - lib/assets/images/openai_logo.jpg
-     - lib/assets/images/person.png
+     - lib/assets/
+     - lib/assets/svgs/
+     - lib/assets/images/
      - lib/assets/flags/
+     - lib/assets/icons/
+     - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -123,10 +111,51 @@ flutter:
   fonts:
      - family: Poppins
        fonts:
-         - asset: lib/assets/fonts/Poppins-Bold.ttf
-         - asset: lib/assets/fonts/Poppins-Medium.ttf
-         - asset: lib/assets/fonts/Poppins-Regular.ttf
-         - asset: lib/assets/fonts/Poppins-SemiBold.ttf
-  #
+         - asset: fonts/Poppins-Regular.ttf
+
+     - family: PoppinsMedium
+       fonts:
+         - asset: fonts/Poppins-Medium.ttf
+
+     - family: PoppinsSemiBold
+       fonts:
+         - asset: fonts/Poppins-SemiBold.ttf
+
+     - family: PoppinsBold
+       fonts:
+         - asset: fonts/Poppins-Bold.ttf
+
+     - family: LatoBlack
+       fonts:
+         - asset: fonts/Lato-Black.ttf
+
+     - family: LatoBold
+       fonts:
+         - asset: fonts/Lato-Bold.ttf
+
+     - family: LatoItalic
+       fonts:
+         - asset: fonts/Lato-Italic.ttf
+
+     - family: LatoLight
+       fonts:
+         - asset: fonts/Lato-Light.ttf
+
+     - family: LatoRegular
+       fonts:
+         - asset: fonts/Lato-Regular.ttf
+
+     - family: LatoThin
+       fonts:
+         - asset: fonts/Lato-Thin.ttf
+
+     - family: Montserrat
+       fonts:
+         - asset: fonts/Montserrat-Regular.ttf
+
+     - family: MontserratBold
+       fonts:
+         - asset: fonts/Montserrat-Bold.ttf
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
