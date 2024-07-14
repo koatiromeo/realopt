@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/bottomSheet/edit_location.dart';
-import 'package:realopt/components/gap.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/components/home/edit_location.dart';
+import 'package:realopt/constants/colors.dart';
 import 'package:realopt/screens/account_location_screen.dart';
 import 'package:realopt/screens/promotion_screen.dart';
 import 'package:realopt/utils/route_name.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'gap.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -65,7 +65,7 @@ class HomeHeader extends StatelessWidget {
               onTap: () {
                 PersistentNavBarNavigator.pushNewScreenWithRouteSettings(
                   context,
-                  settings: RouteSettings(name: RoutesName.promotionScreem),
+                  settings: RouteSettings(name: RoutesName.promotionScreen),
                   screen: PromotionScreen(),
                   withNavBar: false,
                   pageTransitionAnimation: PageTransitionAnimation.cupertino,
@@ -83,7 +83,7 @@ class HomeHeader extends StatelessWidget {
               ),
             ),
             Gap(isWidth: true, isHeight: false, width: width * 0.03),
-            const LocationBottomSheet(),
+            const EditLocation(),
           ],
         )
       ],

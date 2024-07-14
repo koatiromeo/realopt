@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:realopt/utils/responsive.dart';
-import 'package:realopt/dashboard/investor_profile_form.dart';
-import 'package:realopt/dashboard/style/colors.dart';
-import 'package:realopt/constant/style.dart';
-import 'package:realopt/form/selectable_dropdown.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/styles.dart';
+import 'package:realopt/components/form/selectable_dropdown.dart';
 
 class HeaderAdminDropdown extends StatelessWidget {
   String mainTitle;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/shared/screen.dart';
+import 'package:realopt/screens/shared_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -11,7 +11,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
-    return Screen(
+    return SharedScreen(
       isBackButton: false,
       isBottomTab: true,
       child: Text("cool"),

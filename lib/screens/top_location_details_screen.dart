@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/shared/screen.dart';
+import 'package:realopt/screens/shared_screen.dart';
 
 class TopLocationDetails extends StatefulWidget {
   const TopLocationDetails({super.key});
@@ -11,7 +11,7 @@ class TopLocationDetails extends StatefulWidget {
 class _TopLocationDetailsState extends State<TopLocationDetails> {
   @override
   Widget build(BuildContext context) {
-    return Screen(
+    return SharedScreen(
       isBackButton: false,
       child: Text("top location details"),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/gap.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/constants/colors.dart';
+import 'gap.dart';
 
 class PropertyCard extends StatelessWidget {
   final String title, subtitle, path;

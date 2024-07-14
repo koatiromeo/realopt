@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/frontApp/account_form.dart';
-import 'package:realopt/components/gap.dart';
-import 'package:realopt/components/header_title.dart';
-import 'package:realopt/components/shared/screen.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/components/home/account_form.dart';
+import 'package:realopt/components/home/gap.dart';
+import 'package:realopt/components/home/header_title.dart';
+import 'package:realopt/screens/shared_screen.dart';
 
 class UserAccountScreen extends StatefulWidget {
   const UserAccountScreen({super.key});
@@ -16,7 +15,7 @@ class _UserAccountScreenState extends State<UserAccountScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
-    return Screen(
+    return SharedScreen(
       isBackButton: true,
       isBottomTab: false,
       child: Column(

@@ -1,10 +1,10 @@
-import 'package:realopt/Constant/ColorGlobal.dart';
-import 'package:realopt/pages/EditProfilePage.dart';
-import 'package:realopt/pages/GuestHomePage.dart';
-import 'package:realopt/pages/SettingsPage.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/screens/edit_profile_screen.dart';
+import 'package:realopt/screens/properties_exploration_guest_user_screen.dart';
+import 'package:realopt/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
-import '../../components/dashboard/profile_menu.dart';
-import '../../components/dashboard/profile_pic.dart';
+import 'package:realopt/components/dashboard/profile_menu.dart';
+import 'package:realopt/components/dashboard/profile_pic.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -19,9 +19,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile", style: TextStyle(color: ColorGlobal.whiteColor),),
-        backgroundColor: ColorGlobal.colorPrimary,
-        foregroundColor: ColorGlobal.whiteColor,
+        title: const Text("Profile", style: TextStyle(color: AppColors.whiteColor),),
+        backgroundColor: AppColors.colorPrimary,
+        foregroundColor: AppColors.whiteColor,
       ),
       bottomNavigationBar: Row(
         children: [
@@ -44,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               icon: "assets/icons/User.svg",
               press: ()  {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) => const EditProfilePage()));
+                    MaterialPageRoute(builder: (BuildContext context) => const EditProfileScreen()));
               },
             ),
             ProfileMenu(
@@ -67,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               icon: "assets/icons/Settings.svg",
               press: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (BuildContext context) => const SettingsPage()));
+                    MaterialPageRoute(builder: (BuildContext context) => const SettingsScreen()));
               },
             ),
             ProfileMenu(
@@ -88,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           _selectedItemIndex = index;
           if(index == 2){
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (BuildContext context) => GuestHomePage()));
+                MaterialPageRoute(builder: (BuildContext context) => const PropertiesExplorationGuestUserScreen()));
           }
 
         });

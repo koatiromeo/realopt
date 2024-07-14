@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/shared/screen.dart';
+import 'package:realopt/screens/shared_screen.dart';
 
 class AccountProfileScreen extends StatefulWidget {
   const AccountProfileScreen({super.key});
@@ -11,7 +11,7 @@ class AccountProfileScreen extends StatefulWidget {
 class _AccountProfileScreenState extends State<AccountProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Screen(
+    return SharedScreen(
       isBackButton: false,
       isBottomTab: true,
       child: Text("cool"),

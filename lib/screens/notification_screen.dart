@@ -1,5 +1,5 @@
-import 'package:realopt/Constant/ColorGlobal.dart';
-import 'package:realopt/pages/SettingsPage.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -17,13 +17,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        foregroundColor: ColorGlobal.whiteColor,
-        backgroundColor: ColorGlobal.colorPrimary,
+        foregroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.colorPrimary,
         actions: [
           IconButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const SettingsPage()));
+                  builder: (BuildContext context) => const SettingsScreen()));
             },
             icon: const Icon(Icons.settings),
           )
@@ -34,7 +34,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             Navigator.of(context).pop();
           },
         ),
-        title: const Text("Notifications", style: TextStyle(color: ColorGlobal.whiteColor),),
+        title: const Text("Notifications", style: TextStyle(color: AppColors.whiteColor)),
       ),
       body: Column(
         children: [

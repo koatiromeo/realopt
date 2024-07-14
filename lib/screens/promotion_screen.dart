@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:realopt/components/gap.dart';
+import 'package:realopt/components/home/gap.dart';
 import 'package:realopt/components/home/property_card.dart';
-import 'package:realopt/components/shared/screen.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/screens/shared_screen.dart';
+import 'package:realopt/constants/colors.dart';
 
 class PromotionScreen extends StatefulWidget {
   const PromotionScreen({super.key});
@@ -17,7 +17,7 @@ class _PromotionScreenState extends State<PromotionScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
     final width = MediaQuery.of(context).size.width * 1;
-    return Screen(
+    return SharedScreen(
       isBackButton: true,
       child: Column(
         children: [

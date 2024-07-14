@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
-import 'simulations_management_screen.dart';
-import 'package:realopt/constant/colors.dart';
-import 'package:fl_chart/fl_chart.dart'; // Import fl_chart package
+import 'package:fl_chart/fl_chart.dart';
+import 'package:realopt/screens/simulations_management_screen.dart';
 
-class SimulationPage extends StatefulWidget {
-  const SimulationPage({super.key});
+class SimulationGenerationScreen extends StatefulWidget {
+  const SimulationGenerationScreen({super.key});
 
   @override
-  _SimulationPageState createState() => _SimulationPageState();
+  State<SimulationGenerationScreen> createState() => _SimulationGenerationScreenState();
 }
 
-class _SimulationPageState extends State<SimulationPage> {
+class _SimulationGenerationScreenState extends State<SimulationGenerationScreen> {
   bool isPreviewExpanded = false;
   bool isProjectHidden = false;
   bool isPreviewHidden = false;
@@ -60,13 +59,13 @@ class _SimulationPageState extends State<SimulationPage> {
                 });
                 Navigator.of(context).pop();
               },
-              child: Text('Save'),
+              child: const Text('Save'),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
           ],
         );
@@ -104,7 +103,7 @@ class _SimulationPageState extends State<SimulationPage> {
                       PageTransition(
                           type: PageTransitionType.rightToLeft,
                           duration: const Duration(milliseconds: 400),
-                          child: Simulations()));
+                          child: SimulationsManagementScreen()));
                 },
               ),
             ),

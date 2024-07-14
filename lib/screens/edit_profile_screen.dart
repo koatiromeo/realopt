@@ -33,7 +33,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const SettingsPage()));
+                  builder: (BuildContext context) => const SettingsScreen()));
             },
           ),
         ],

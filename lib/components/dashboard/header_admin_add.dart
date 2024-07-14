@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:realopt/utils/responsive.dart';
-import 'package:realopt/dashboard/investor_profile_form.dart';
-import 'package:realopt/dashboard/style/colors.dart';
-import 'package:realopt/constant/style.dart';
-import 'package:realopt/document/document.dart';
-import 'package:realopt/simulation/simulation_page.dart';
+import 'package:realopt/screens/add_investor_profile_screen.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/styles.dart';
+import 'package:realopt/screens/document_generation_screen.dart';
+import 'package:realopt/screens/simulation_generation_screen.dart';
 
 class HeaderAdminAdd extends StatelessWidget {
   String mainTitle;
@@ -52,7 +52,7 @@ class HeaderAdminAdd extends StatelessWidget {
                             PageTransition(
                                 type: PageTransitionType.rightToLeft,
                                 duration: const Duration(milliseconds: 400),
-                                child: InvestorProfileForm()));
+                                child: const AddInvestorProfileScreen()));
 
                       }
 
@@ -62,7 +62,7 @@ class HeaderAdminAdd extends StatelessWidget {
                             PageTransition(
                                 type: PageTransitionType.rightToLeft,
                                 duration: const Duration(milliseconds: 400),
-                                child: Document()));
+                                child: const DocumentGenerationScreen()));
                       }
 
                       if(mainTitle == "Simulations"){
@@ -71,7 +71,7 @@ class HeaderAdminAdd extends StatelessWidget {
                             PageTransition(
                                 type: PageTransitionType.rightToLeft,
                                 duration: const Duration(milliseconds: 400),
-                                child: SimulationPage()));
+                                child: SimulationGenerationScreen()));
                       }
 
                       if(mainTitle == "Investors"){
@@ -80,7 +80,7 @@ class HeaderAdminAdd extends StatelessWidget {
                             PageTransition(
                                 type: PageTransitionType.rightToLeft,
                                 duration: const Duration(milliseconds: 400),
-                                child: InvestorProfileForm()));
+                                child: const AddInvestorProfileScreen()));
 
                       }
 
@@ -88,7 +88,7 @@ class HeaderAdminAdd extends StatelessWidget {
                     icon:const Icon(
                         Icons.add,
                         size: 30,
-                        color: AppColors.black
+                        color: AppColors.blackColor
                     )
                 ),
               ],

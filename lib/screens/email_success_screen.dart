@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:realopt/utils/responsive.dart';
-import '../constant/app_colors.dart';
-import '../constant/app_styles.dart';
-import '../utils/responsive_widget.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/styles.dart';
+import 'package:realopt/utils/responsive_widget.dart';
 import 'login_screen.dart';
 
 class EmailSuccessScreen extends StatefulWidget {

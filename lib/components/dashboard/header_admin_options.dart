@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:realopt/utils/responsive.dart';
-import 'package:realopt/dashboard/style/colors.dart';
-import 'package:realopt/constant/style.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/styles.dart';
 
 class HeaderAdminOptions extends StatelessWidget {
   String mainTitle;
@@ -47,7 +47,7 @@ class HeaderAdminOptions extends StatelessWidget {
                     icon:const Icon(
                         Icons.add,
                         size: 30,
-                        color: AppColors.black
+                        color: AppColors.blackColor
                     )
                 ),
                 IconButton(
@@ -57,7 +57,7 @@ class HeaderAdminOptions extends StatelessWidget {
                     icon:const Icon(
                         Icons.compare_arrows,
                         size: 30,
-                        color: AppColors.black
+                        color: AppColors.blackColor
                     )
                 )
               ],

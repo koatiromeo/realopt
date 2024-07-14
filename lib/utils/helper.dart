@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/constants/colors.dart';
 import 'package:realopt/utils/route_name.dart';
 import 'package:realopt/utils/storage.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class Helper {
       }));
     } else {
       Timer(const Duration(seconds: 3), (() {
-        Navigator.pushNamed(context, RoutesName.onboarding_screen);
+        Navigator.pushNamed(context, RoutesName.onboardingScreen);
       }));
     }
   }

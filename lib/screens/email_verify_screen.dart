@@ -6,19 +6,20 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:pinput/pinput.dart';
 import 'package:realopt/utils/responsive.dart';
-import '../constant/app_colors.dart';
-import '../constant/app_styles.dart';
-import '../utils/responsive_widget.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/styles.dart';
+import 'package:realopt/utils/responsive_widget.dart';
 
 
-class EmailVerify extends StatefulWidget {
-  late String theEmail;
-  EmailVerify({Key? key, required this.theEmail}) : super(key: key);
+class EmailVerifyScreen extends StatefulWidget {
+
+  const EmailVerifyScreen({super.key});
   @override
-  State<EmailVerify> createState() => _EmailVerifyState();
+  State<EmailVerifyScreen> createState() => _EmailVerifyState();
 }
 
-class _EmailVerifyState extends State<EmailVerify> {
+class _EmailVerifyState extends State<EmailVerifyScreen> {
+  String userEmail = "";
   String email_message = "";
   bool can_pass = false;
   String opt_enter = "";
@@ -157,7 +158,7 @@ class _EmailVerifyState extends State<EmailVerify> {
                                     borderRadius: BorderRadius.circular(10))),
                             onPressed: () async{
                               if(can_pass){
-                                var dataBody = await fetchdata("${dotenv.env['API_BASE_ADDRESS']}verify_otp", "post", {"email":widget.theEmail, "otp":opt_enter}, "");
+                                var dataBody = await fetchdata("${dotenv.env['API_BASE_ADDRESS']}verify_otp", "post", {"email":userEmail, "otp":opt_enter}, "");
                                 var response = jsonDecode(dataBody.toString());
                                 if(response["status"] == false){
                                   setState(() {
@@ -165,7 +166,7 @@ class _EmailVerifyState extends State<EmailVerify> {
                                   });
                                 }
                                 else{
-                                  var dataBody = await fetchdata("${dotenv.env['API_BASE_ADDRESS']}activate_user", "post", {"email":widget.theEmail}, "");
+                                  var dataBody = await fetchdata("${dotenv.env['API_BASE_ADDRESS']}activate_user", "post", {"email":userEmail}, "");
                                   var response = jsonDecode(dataBody.toString());
                                   if(response["status"] == true){
                                     Navigator.push(
@@ -173,7 +174,7 @@ class _EmailVerifyState extends State<EmailVerify> {
                                         PageTransition(
                                             type: PageTransitionType.rightToLeft,
                                             duration: const Duration(milliseconds: 800),
-                                            child: const EmailSuccess()));
+                                            child: const EmailSuccessScreen()));
                                   }
                                   else{
                                     setState(() {
@@ -195,7 +196,7 @@ class _EmailVerifyState extends State<EmailVerify> {
                         children: [
                           TextButton(
                               onPressed: () async{
-                                var data_body = await fetchdata("${dotenv.env['API_BASE_ADDRESS']}request_otp", "post", {"email":widget.theEmail}, "");
+                                var data_body = await fetchdata("${dotenv.env['API_BASE_ADDRESS']}request_otp", "post", {"email":userEmail}, "");
                                 var reponse = jsonDecode(data_body.toString());
 
 
@@ -208,17 +209,17 @@ class _EmailVerifyState extends State<EmailVerify> {
                                 else{
                                   setState(() {
                                     email_message = "The code have been recent to ";
-                                    int size_email = widget.theEmail.length;
-                                    int position_of_email = widget.theEmail.indexOf("@");
-                                    int position_of_dot = widget.theEmail.indexOf(".");
+                                    int size_email = userEmail.length;
+                                    int position_of_email = userEmail.indexOf("@");
+                                    int position_of_dot = userEmail.indexOf(".");
                                     for(var i=0; i < size_email; i++ )
                                     {
                                       if(i == 0){
-                                        email_message = email_message + widget.theEmail[i].toString();
+                                        email_message = email_message + userEmail[i].toString();
                                       }
                                       else{
                                         if(i == size_email-1 || i == position_of_email-1 || i == position_of_email || i == position_of_email + 1 || i == position_of_dot - 1 || i == position_of_dot || i == position_of_dot + 1){
-                                          email_message = email_message + widget.theEmail[i].toString();
+                                          email_message = email_message + userEmail[i].toString();
                                         }
                                         else{
                                           email_message = email_message + "*".toString();

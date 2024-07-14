@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/constants/colors.dart';
 
 class RowTitleHome extends StatelessWidget {
   final VoidCallback onPress;

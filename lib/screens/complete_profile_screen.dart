@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:realopt/Constant/ColorGlobal.dart';
+import 'package:realopt/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,25 +8,25 @@ import 'package:realopt/utils/functions.dart';
 import 'dart:convert';
 import 'package:get_storage/get_storage.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:realopt/constant/app_colors.dart';
 import 'package:realopt/utils/responsive.dart';
-import 'package:realopt/dashboard/dashboard.dart';
-import 'package:realopt/auth/app_styles.dart';
+import 'package:realopt/screens/dashboard_screen.dart';
+import 'package:realopt/constants/styles.dart';
 import 'package:realopt/utils/responsive_widget.dart';
-import 'package:realopt/pages/CompleteInvestorProfilePage.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 
 class CompleteProfileScreen extends StatefulWidget {
-  late  String theemail;
 
-  CompleteProfileScreen({super.key, required this.theemail});
+
+  const CompleteProfileScreen({super.key});
 
   @override
   State<CompleteProfileScreen> createState() => _CompleteProfileScreenState();
 }
 
 class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
+
+  String userEmail = "";
   XFile? _imageFile;
   final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
   bool requestAsWork = false;
@@ -279,7 +279,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                               width: 4,
                                               color: Theme.of(context).scaffoldBackgroundColor,
                                             ),
-                                            color: ColorGlobal.colorPrimary,
+                                            color: AppColors.colorPrimary,
                                           ),
                                           child: InkWell(
                                             onTap: () {
@@ -388,7 +388,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                               "${dotenv.env['API_BASE_ADDRESS']}add_profile",
                                               "post",
                                               {
-                                                "email":widget.theemail,
+                                                "email":userEmail,
                                                 "first_name":_UserFirstName,
                                                 "last_name":_UserLastName,
                                                 "user_type":_SelectedTypeUser,
@@ -406,7 +406,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                                   PageTransition(
                                                       type: PageTransitionType.rightToLeft,
                                                       duration: const Duration(milliseconds: 400),
-                                                      child: Dashboard()));
+                                                      child: DashboardScreen()));
 
                                             }
                                             else{
@@ -430,7 +430,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
 
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: ColorGlobal.colorPrimary, // Background color
+                                      backgroundColor: AppColors.colorPrimary, // Background color
                                       padding: const EdgeInsets.symmetric(horizontal: 50),
                                       elevation: 2,
                                       shape: RoundedRectangleBorder(
@@ -518,7 +518,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                               "${dotenv.env['API_BASE_ADDRESS']}add_profile",
                                               "post",
                                               {
-                                                "email":widget.theemail,
+                                                "email":userEmail,
                                                 "first_name":_UserFirstName,
                                                 "last_name":_UserLastName,
                                                 "user_type":_SelectedTypeUser,
@@ -536,7 +536,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                                   PageTransition(
                                                       type: PageTransitionType.rightToLeft,
                                                       duration: const Duration(milliseconds: 400),
-                                                      child: Dashboard()));
+                                                      child: DashboardScreen()));
 
                                             }
                                             else{
@@ -561,7 +561,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
 
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: ColorGlobal.colorPrimary, // Background color
+                                      backgroundColor: AppColors.colorPrimary, // Background color
                                       padding: const EdgeInsets.symmetric(horizontal: 50),
                                       elevation: 2,
                                       shape: RoundedRectangleBorder(

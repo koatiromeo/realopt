@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/shared/screen.dart';
+import 'package:realopt/screens/shared_screen.dart';
 
 class AgentProfileScreen extends StatefulWidget {
   const AgentProfileScreen({super.key});
@@ -11,7 +11,7 @@ class AgentProfileScreen extends StatefulWidget {
 class _AgentProfileScreenState extends State<AgentProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Screen(
+    return SharedScreen(
       isBackButton: false,
       child: Text("agent profile"),
     );

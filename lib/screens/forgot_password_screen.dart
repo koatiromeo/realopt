@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../constant/app_colors.dart';
-import '../constant/app_styles.dart';
-import '../constant/app_icons.dart';
-import '../utils/responsive_widget.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/styles.dart';
+import 'package:realopt/constants/icons.dart';
+import 'package:realopt/screens/login_screen.dart';
+import 'package:realopt/utils/responsive_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -143,7 +144,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                               style: ralewayStyle.copyWith(
                                 fontWeight: FontWeight.w700,
                                 color: AppColors.whiteColor,
-                                fontSize: 16.0,
+                                fontSize: 12.0,
                               ),
                             ),
                           ),
@@ -161,7 +162,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                     duration: const Duration(milliseconds: 400),
                                     child: const LoginScreen()));
                           },
-                          child: Text('Remember your password? Sign In',
+                          child: Text('Remember your password? Login',
                             style: ralewayStyle.copyWith(
                               fontSize: 12.0,
                               color: AppColors.blueDarkColor,

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">realopt</string>
+    <string name="facebook_app_id">452619727535330</string>
+    <string name="fb_login_protocol_scheme">fb452619727535330</string>
+    <string name="facebook_client_token">3d4211036c19593b18b0157006f2d09f</string>
+</resources>

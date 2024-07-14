@@ -4,11 +4,12 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:realopt/utils/functions.dart';
 import 'dart:convert';
-import 'package:realopt/constant/theme.dart';
+import 'package:realopt/constants/theme.dart';
 import 'package:realopt/utils/route_name.dart';
 import 'package:realopt/utils/routes.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 Future main() async
 {
@@ -18,8 +19,12 @@ Future main() async
   await dotenv.load(fileName: ".env");
   await GetStorage.init();
   final GetStorage storage = GetStorage();
-
-  if(storage.read("FirstAccess") != null)
+  const facebookAppId = "452619727535330";
+  if (kIsWeb) {
+    await FacebookAuth.i.webAndDesktopInitialize(
+        appId: facebookAppId, cookie: true, xfbml: true, version: "v14.0");
+  }
+    if(storage.read("FirstAccess") != null)
   {
       if(storage.read("userSession") != null)
       {
@@ -97,8 +102,8 @@ class _MyAppState extends State<MyApp> {
       theme: appTheme,
       initialRoute: _storage.read("CanPass") == 2 ? RoutesName.agentProfileScreen  :
                     _storage.read("CanPass") == 3 ? RoutesName.homeScreen :
-                    _storage.read("CanPass") == 0 ? ( kIsWeb ? RoutesName.landingPageScreen : (Platform.isAndroid || Platform.isIOS) ? RoutesName.onboarding_screen: RoutesName.startedScreen ) :
-                    _storage.read("CanPass") == 1 ? ( kIsWeb ? RoutesName.landingPageScreen : (Platform.isAndroid || Platform.isIOS) ? RoutesName.startedScreen : RoutesName.startedScreen) :
+                    _storage.read("CanPass") == 0 ? ( kIsWeb ? RoutesName.landingScreen : (Platform.isAndroid || Platform.isIOS) ? RoutesName.onboardingScreen: RoutesName.startedScreen ) :
+                    _storage.read("CanPass") == 1 ? ( kIsWeb ? RoutesName.landingScreen : (Platform.isAndroid || Platform.isIOS) ? RoutesName.startedScreen : RoutesName.startedScreen) :
                     RoutesName.errorScreen,
       onGenerateRoute: Routes.generateRoute,
     );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'document_management_screen.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/constants/colors.dart';
 
 
 class DocumentGenerationScreen extends StatefulWidget {
@@ -103,7 +103,7 @@ class _DocumentGenerationScreenState extends State<DocumentGenerationScreen> {
                           PageTransition(
                               type: PageTransitionType.rightToLeft,
                               duration: const Duration(milliseconds: 400),
-                              child: Documents()));
+                              child: DocumentManagementScreen()));
                     })
             ),
             Align(

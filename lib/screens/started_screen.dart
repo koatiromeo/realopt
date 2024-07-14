@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/app_button.dart';
-import 'package:realopt/components/gap.dart';
-import 'package:realopt/components/or_divider.dart';
-import 'package:realopt/components/login_option.dart';
+import 'package:realopt/components/home/app_button.dart';
+import 'package:realopt/components/home/gap.dart';
+import 'package:realopt/components/home/or_divider.dart';
+import 'package:realopt/components/home/login_option.dart';
 import 'package:realopt/utils/responsive.dart';
 import 'package:realopt/utils/route_name.dart';
-import 'package:realopt/constant/app_colors.dart';
-import 'package:realopt/auth/app_styles.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/styles.dart';
 import 'package:realopt/utils/responsive_widget.dart';
 
 class StartedScreen extends StatefulWidget {
@@ -64,18 +64,18 @@ class _StartedScreenState extends State<StartedScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(height: height * 0.07),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center, // Centrer les options
-                        children: const [
+                        children: [
                           LoginOption(path: "lib/assets/images/login1.png"),
                           Gap(isWidth: true, isHeight: false, width: 10),
                           LoginOption(path: "lib/assets/images/login2.png"),
                         ],
                       ),
                       Gap(isWidth: false, isHeight: true, height: height * 0.01),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center, // Centrer les options
-                        children: const [
+                        children: [
                           LoginOption(path: "lib/assets/images/login3.png"),
                           Gap(isWidth: true, isHeight: false, width: 10),
                           LoginOption(path: "lib/assets/images/login4.png"),
@@ -99,7 +99,7 @@ class _StartedScreenState extends State<StartedScreen> {
                       Gap(isWidth: false, isHeight: true, height: height * 0.035),
                       AppButton(
                         onPress: () {
-                          Navigator.pushNamed(context, RoutesName.loginScreen);
+                          Navigator.pushNamed(context, RoutesName.propertiesExplorationsGuestUserScreen);
                         },
                         title: "Continue as Guest",
                         textColor: AppColors.whiteColor,
@@ -143,7 +143,7 @@ class _StartedScreenState extends State<StartedScreen> {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.pushNamed(context, RoutesName.signupScreen);
+                              Navigator.pushNamed(context, RoutesName.signUpScreen);
                             },
                             child: Text(
                               " Register",

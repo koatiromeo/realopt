@@ -1,19 +1,17 @@
-import 'dart:io';
-import 'package:realopt/Constant/ColorGlobal.dart';
+import 'package:realopt/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:realopt/api/functions.dart';
-import 'dart:convert';
+import 'package:realopt/utils/functions.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:realopt/auth/app_colors.dart';
-import 'package:realopt/dashboard/config/responsive.dart';
-import 'package:realopt/dashboard/dashboard.dart';
-import 'package:realopt/auth/app_styles.dart';
-import 'package:realopt/auth/responsive_widget.dart';
-
+import 'package:realopt/utils/responsive.dart';
+import 'package:realopt/screens/dashboard_screen.dart';
+import 'package:realopt/constants/styles.dart';
+import 'package:realopt/utils/responsive_widget.dart';
+import 'dart:io';
+import 'dart:convert';
 
 class CompleteInvestorProfileScreen extends StatefulWidget {
   late  String theemail;
@@ -86,10 +84,16 @@ class _CompleteInvestorProfileScreenState extends State<CompleteInvestorProfileS
 
   final FocusNode PhoneFocusNode = FocusNode();
 
-
+  final _UserTypeList = ["Investor", "broker"];
+  String _SelectedTypeUser = "";
+  String _UserFirstName = "";
+  String _UserLastName = "";
+  String _UserPhoneNumber = "";
   final TextEditingController _controllerTextEditingFirstName = TextEditingController();
   final TextEditingController _controllerTextEditingLastName = TextEditingController();
   final TextEditingController _controllerPhoneEditing =  TextEditingController();
+
+
 
   void takePhoto(ImageSource source) async{
     final pickedFile = await _picker.pickImage(source: source);
@@ -243,7 +247,7 @@ class _CompleteInvestorProfileScreenState extends State<CompleteInvestorProfileS
                                               width: 4,
                                               color: Theme.of(context).scaffoldBackgroundColor,
                                             ),
-                                            color: ColorGlobal.colorPrimary,
+                                            color: AppColors.colorPrimary,
                                           ),
                                           child: InkWell(
                                             onTap: () {
@@ -377,7 +381,7 @@ class _CompleteInvestorProfileScreenState extends State<CompleteInvestorProfileS
                                                   PageTransition(
                                                       type: PageTransitionType.rightToLeft,
                                                       duration: const Duration(milliseconds: 400),
-                                                      child: Dashboard()));
+                                                      child: DashboardScreen()));
 
                                             }
                                             else{
@@ -387,7 +391,7 @@ class _CompleteInvestorProfileScreenState extends State<CompleteInvestorProfileS
                                                   PageTransition(
                                                       type: PageTransitionType.rightToLeft,
                                                       duration: const Duration(milliseconds: 400),
-                                                      child: Dashboard()));
+                                                      child: DashboardScreen()));
 
                                             }
                                           }
@@ -401,7 +405,7 @@ class _CompleteInvestorProfileScreenState extends State<CompleteInvestorProfileS
 
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: ColorGlobal.colorPrimary, // Background color
+                                      backgroundColor: AppColors.colorPrimary, // Background color
                                       padding: const EdgeInsets.symmetric(horizontal: 50),
                                       elevation: 2,
                                       shape: RoundedRectangleBorder(

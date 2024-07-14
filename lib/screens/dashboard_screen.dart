@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:realopt/components/dashboard/ai_floating_action_button.dart';
-import 'package:realopt/components/dashboard/appBarActionItems.dart';
-import 'package:realopt/components/dashboard/barChartCopmponent.dart';
+import 'package:realopt/components/dashboard/app_bar_action_items.dart';
+import 'package:realopt/components/dashboard/bar_chart_component.dart';
 import 'package:realopt/components/dashboard/header_admin_add.dart';
-import 'package:realopt/components/dashboard/historyTable.dart';
-import 'package:realopt/components/dashboard/infoCard.dart';
-import 'package:realopt/components/dashboard/paymentDetailList.dart';
-import 'package:realopt/components/dashboard/sideMenu.dart';
+import 'package:realopt/components/dashboard/history_table.dart';
+import 'package:realopt/components/dashboard/info_card.dart';
+import 'package:realopt/components/dashboard/payment_detail_list.dart';
+import 'package:realopt/components/dashboard/side_menu.dart';
 import 'package:realopt/utils/responsive.dart';
 import 'package:realopt/utils/size_config.dart';
-import 'package:realopt/constant/colors.dart';
-import 'package:realopt/constant/style.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/styles.dart';
 
-class Dashboard extends StatelessWidget {
+class DashboardScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
   final List<Map<String, String>> listItems = [
     {'title': 'Title 1', 'content': 'Content for title 1'},
@@ -20,7 +20,7 @@ class Dashboard extends StatelessWidget {
     {'title': 'Title 3', 'content': 'Content for title 3'},
   ];
 
-  Dashboard({super.key});
+  DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,19 +45,19 @@ class Dashboard extends StatelessWidget {
       appBar: !Responsive.isDesktop(context)
           ? AppBar(
         elevation: 0,
-        backgroundColor: AppColors.white,
+        backgroundColor: AppColors.whiteColor,
         leading: IconButton(
             onPressed: () {
               _drawerKey.currentState?.openDrawer();
             },
-            icon: const Icon(Icons.menu, color: AppColors.black)),
+            icon: const Icon(Icons.menu, color: AppColors.backColor)),
         actions: [
           const AppBarActionItems(),
           IconButton(
               onPressed: () {
                 _drawerKey.currentState?.openEndDrawer();
               },
-              icon:const Icon(Icons.more_vert, color: AppColors.black)
+              icon:const Icon(Icons.more_vert, color: AppColors.backColor)
           )
         ],
       )
@@ -151,7 +151,7 @@ class Dashboard extends StatelessWidget {
                         ),
                         Container(
                           height: 180,
-                          child: const BarChartCopmponent(),
+                          child: const BarChartComponent(),
                         ),
                         SizedBox(
                           height: SizeConfig.blockSizeVertical! * 5,

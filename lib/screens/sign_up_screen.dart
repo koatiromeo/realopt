@@ -1,16 +1,23 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:realopt/utils/functions.dart';
 import 'email_verify_screen.dart';
 import 'login_screen.dart';
-import '../constant/app_colors.dart';
-import '../constant/app_icons.dart';
-import '../constant/app_styles.dart';
-import '../utils/responsive_widget.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/constants/icons.dart';
+import 'package:realopt/constants/styles.dart';
+import 'package:realopt/utils/responsive_widget.dart';
+import 'package:realopt/utils/route_name.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as path;
+import 'dart:io';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
 
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({super.key});
@@ -49,6 +56,222 @@ class _SingUpScreenState extends State<SingUpScreen> {
   final GetStorage _storage = GetStorage();
   late bool statusLogin = false;
   late String haveToPass = "1";
+
+  Future<void> _loginWithGoogle() async {
+    // Logique pour se connecter avec Google et obtenir emailValue et passwordValue
+    // Une fois que vous avez ces valeurs, appelez _submit()
+    await _submit();
+  }
+
+  Future<void> _loginWithFacebook() async {
+    // final fb = FacebookLogin();
+    // final res = await fb.logIn(permissions: [
+    //   FacebookPermission.publicProfile,
+    //   FacebookPermission.email,
+    // ]);
+    //
+    // switch (res.status)
+    // {
+    //   case FacebookLoginStatus.success:
+    //
+    //     final FacebookAccessToken? accessToken = res.accessToken;
+    //     final profile = await fb.getUserProfile();
+    //     final imageUrl = await fb.getProfileImageUrl(width: 100);
+    //     final email = await fb.getUserEmail();
+    //
+    //     if (email != null)
+    //     {
+    //
+    //       var dataBody = await fetchdata(
+    //           "${dotenv.env['API_BASE_ADDRESS']}check_user", "post",
+    //           {"email": email}, "");
+    //       var response = jsonDecode(dataBody.toString());
+    //
+    //       if (response["status"] == true)
+    //       {
+    //
+    //         _storage.write("user_email", email);
+    //         _storage.write("user_username", profile!.name);
+    //         _storage.write("user_firstname", profile!.firstName);
+    //         _storage.write("user_lastname", profile.lastName);
+    //
+    //         if(response["msg"] == "User Exist")
+    //         {
+    //
+    //           setState(() {
+    //             _localValue =
+    //             "User already exist";
+    //           });
+    //
+    //         }
+    //         else
+    //         {
+    //
+    //           if(response["msg"] == "User Not Exist")
+    //           {
+    //             XFile? imageFile;
+    //
+    //             try
+    //             {
+    //               final Directory tempDir = await getTemporaryDirectory();
+    //               final String tempPath = tempDir.path;
+    //
+    //               final http.Response response = await http.get(Uri.parse(imageUrl!));
+    //
+    //               final String fileName = path.basename(imageUrl);
+    //               final File file = File('$tempPath/$fileName');
+    //
+    //               await file.writeAsBytes(response.bodyBytes);
+    //
+    //               imageFile = XFile(file.path);
+    //
+    //               imageFile == null ?  _storage.write("user_avatar", "noImage") : _storage.write("user_avatar", base64Encode(imageFile?.readAsBytes() as List<int>));
+    //
+    //               var signUpSocialMediaDataBody = await fetchdata(
+    //                   "${dotenv.env['API_BASE_ADDRESS']}sign_up_social_media", "post",
+    //                   {"email": email}, "");
+    //
+    //               var signUpSocialMediaDataResponse = jsonDecode(signUpSocialMediaDataBody.toString());
+    //
+    //               if(signUpSocialMediaDataResponse["status"] == false)
+    //               {
+    //                 setState(() {
+    //                   _localValue =
+    //                   "Connectivity problem. Check you are internet connection and try again later.";
+    //                 });
+    //               }
+    //               else
+    //               {
+    //                 var dataBody = await fetchdata(
+    //                     "${dotenv.env['API_BASE_ADDRESS']}login_social_media", "post",
+    //                     {"email": email, "id": accessToken!.userId, "accessToken": accessToken!.token, "username": profile!.name!}, "");
+    //
+    //                 var responseTo = jsonDecode(dataBody.toString());
+    //
+    //                 if (responseTo["status"] == false)
+    //                 {
+    //                   setState(() {
+    //                     _localValue =
+    //                     "Connectivity problem. Check you are internet connection and try again later.";
+    //                   });
+    //                 }
+    //                 else
+    //                 {
+    //
+    //                   _storage.write("userSession", responseTo["token"]);
+    //                   _storage.write("userEmail", email);
+    //
+    //                   var dataBody = await fetchdata(
+    //                       "${dotenv.env['API_BASE_ADDRESS']}check_profile_available", "post",
+    //                       {"email": email}, responseTo["token"]);
+    //                   var responseToDetail = jsonDecode(dataBody.toString());
+    //
+    //                   if (responseToDetail["status"] == false)
+    //                   {
+    //                     XFile? imageFile;
+    //                     try
+    //                     {
+    //                       final Directory tempDir = await getTemporaryDirectory();
+    //                       final String tempPath = tempDir.path;
+    //
+    //                       final http.Response response = await http.get(Uri.parse(imageUrl!));
+    //
+    //                       final String fileName = path.basename(imageUrl);
+    //                       final File file = File('$tempPath/$fileName');
+    //
+    //                       await file.writeAsBytes(response.bodyBytes);
+    //
+    //                       imageFile = XFile(file.path);
+    //
+    //                       imageFile == null ?  _storage.write("user_avatar", "noImage") : _storage.write("user_avatar", base64Encode(imageFile?.readAsBytes() as List<int>));
+    //
+    //                     }
+    //                     catch (e)
+    //                     {
+    //                       setState(() {
+    //                         _localValue =
+    //                         "Connectivity problem. Check you are internet connection and try again later.";
+    //                       });
+    //                     }
+    //
+    //                     Navigator.pushNamed(context, RoutesName.completeProfileScreen);
+    //                   }
+    //                   else
+    //                   {
+    //                     var dataBody = await fetchdata(
+    //                         "${dotenv.env['API_BASE_ADDRESS']}get_user_profile", "post",
+    //                         {"email": email}, _storage.read("userSession"));
+    //                     var responseTo = jsonDecode(dataBody.toString());
+    //
+    //                     if (responseTo["status"])
+    //                     {
+    //                       Navigator.pushNamed(context, RoutesName.dashboardScreen);
+    //                     }
+    //                     else
+    //                     {
+    //                       setState(() {
+    //                         _localValue =
+    //                         "Connectivity problem. Check you are internet connection and try again later.";
+    //                       });
+    //                     }
+    //
+    //                   }
+    //
+    //                 }
+    //               }
+    //
+    //             }
+    //             catch (e)
+    //             {
+    //               setState(() {
+    //                 _localValue =
+    //                 "Connectivity problem. Check you are internet connection and try again later.";
+    //               });
+    //             }
+    //
+    //
+    //           }
+    //           else
+    //           {
+    //             setState(() {
+    //               _localValue =
+    //               "Connectivity problem. Check you are internet connection and try again later.";
+    //             });
+    //
+    //           }
+    //
+    //         }
+    //
+    //       }
+    //       else
+    //       {
+    //         setState(() {
+    //           _localValue =
+    //           "Connectivity problem. Check you are internet connection and try again later.";
+    //         });
+    //       }
+    //
+    //
+    //
+    //     }
+    //     else
+    //     {
+    //       setState(() {
+    //         _localValue =
+    //         "Connectivity problem. Check you are internet connection and try again later.";
+    //       });
+    //     }
+    //     break;
+    //   case FacebookLoginStatus.cancel:
+    //     break;
+    //   case FacebookLoginStatus.error:
+    //     setState(() {
+    //       _localValue =
+    //       "Connectivity problem. Check you are internet connection and try again later.";
+    //     });
+    //     break;
+    // }
+  }
 
   Future<void> _submit() async {
 
@@ -187,7 +410,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
       {
 
         setState(() {
-          _localValue = "User alrady exist";
+          _localValue = "User already exist";
         });
 
       }
@@ -205,12 +428,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
         }
         else{
 
-          Navigator.push(
-              context,
-              PageTransition(
-                  type: PageTransitionType.rightToLeft,
-                  duration: const Duration(milliseconds: 800),
-                  child: EmailVerify(theEmail: emailValue)));
+          Navigator.pushNamed(context, RoutesName.emailVerifyScreen);
         }
 
 
@@ -547,40 +765,91 @@ class _SingUpScreenState extends State<SingUpScreen> {
                         ),
                       ),
                       SizedBox(height: height * 0.05),
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: emailValue.isNotEmpty || passwordValue.isNotEmpty || passwordConfirmValue.isNotEmpty ? _submit : null,
-                          borderRadius: BorderRadius.circular(16.0),
-                          child: Ink(
-                            padding: const EdgeInsets.symmetric(horizontal: 70.0, vertical: 18.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16.0),
-                              color: AppColors.blueDarkColor,
+                      LayoutBuilder(
+                        builder: (context, constraints) {
+                          return Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+
+                                Material(
+                                    color: Colors.transparent,
+                                    child: InkWell(
+                                      onTap: emailValue.isNotEmpty || passwordValue.isNotEmpty || passwordConfirmValue.isNotEmpty ? _submit : null,
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      child: Ink(
+                                        padding: const EdgeInsets.symmetric(horizontal: 70.0, vertical: 18.0),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(16.0),
+                                          color: AppColors.blueDarkColor,
+                                        ),
+                                        child: Text('Sign Up',
+                                          style: ralewayStyle.copyWith(
+                                            fontWeight: FontWeight.w700,
+                                            color: AppColors.whiteColor,
+                                            fontSize: 12.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+
+                                (kIsWeb) ? Row(
+                              mainAxisAlignment: MainAxisAlignment
+                                  .spaceEvenly,
+                              children: [
+                                IconButton(
+                                  onPressed: _loginWithGoogle,
+                                  icon: Image.asset(
+                                    AppIcons.googleLogo,
+                                    width: 50.0,  // Définissez la taille souhaitée ici
+                                    height: 30.0, // Définissez la taille souhaitée ici
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: _loginWithFacebook,
+                                  icon: Image.asset(
+                                    AppIcons.facebookLogo,
+                                    width: 50.0,  // Définissez la taille souhaitée ici
+                                    height: 30.0, // Définissez la taille souhaitée ici
+                                  ),
+                                ),
+                              ],
+                            ) : (Platform.isAndroid || Platform.isIOS) ? Row(
+                              mainAxisAlignment: MainAxisAlignment
+                                  .spaceEvenly,
+                              children: [
+                                IconButton(
+                                  onPressed: _loginWithGoogle,
+                                  icon: Image.asset(
+                                    AppIcons.googleLogo,
+                                    width: 50.0,  // Définissez la taille souhaitée ici
+                                    height: 30.0, // Définissez la taille souhaitée ici
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: _loginWithFacebook,
+                                  icon: Image.asset(
+                                    AppIcons.facebookLogo,
+                                    width: 50.0,  // Définissez la taille souhaitée ici
+                                    height: 30.0, // Définissez la taille souhaitée ici
+                                  ),
+                                ),
+                              ],
+                            ) : const SizedBox(),
+                              ],
                             ),
-                            child: Text('Sign Up',
-                              style: ralewayStyle.copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.whiteColor,
-                                fontSize: 12.0,
-                              ),
-                            ),
-                          ),
-                        ),
+                          );
+                        },
                       ),
                       SizedBox(height: height * 0.03),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: (){
-                            Navigator.push(
-                                context,
-                                PageTransition(
-                                    type: PageTransitionType.rightToLeft,
-                                    duration: const Duration(milliseconds: 400),
-                                    child: const LoginScreen()));
+                            Navigator.pushNamed(context, RoutesName.loginScreen);
                           },
-                          child: Text('Already have an account? Sign In',
+                          child: Text('Already have an account? Login',
                             style: ralewayStyle.copyWith(
                               fontSize: 12.0,
                               color: AppColors.blueDarkColor,

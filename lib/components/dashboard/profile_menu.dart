@@ -1,4 +1,4 @@
-import 'package:realopt/Constant/ColorGlobal.dart';
+import 'package:realopt/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -19,17 +19,17 @@ class ProfileMenu extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: TextButton(
         style: TextButton.styleFrom(
-          foregroundColor: ColorGlobal.whiteColor, padding: const EdgeInsets.all(20),
+          foregroundColor: AppColors.whiteColor, padding: const EdgeInsets.all(20),
           shape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: ColorGlobal.colorPrimaryDark,
+          backgroundColor: AppColors.colorPrimaryDark,
         ),
         onPressed: press,
         child: Row(
           children: [
             SvgPicture.asset(
               icon,
-              color: ColorGlobal.whiteColor,
+              color: AppColors.whiteColor,
               width: 22,
             ),
             const SizedBox(width: 20),

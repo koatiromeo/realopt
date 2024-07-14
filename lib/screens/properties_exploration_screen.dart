@@ -1,15 +1,15 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:realopt/components/dashboard/ai_floating_action_button.dart';
-import 'package:realopt/components/dashboard/appBarActionItems.dart';
+import 'package:realopt/components/dashboard/app_bar_action_items.dart';
 import 'package:realopt/components/dashboard/header_admin_options.dart';
-import 'package:realopt/components/dashboard/paymentDetailList.dart';
-import 'package:realopt/components/dashboard/sideMenu.dart';
+import 'package:realopt/components/dashboard/payment_detail_list.dart';
+import 'package:realopt/components/dashboard/side_menu.dart';
 import 'package:realopt/utils/responsive.dart';
 import 'package:realopt/utils/size_config.dart';
-import 'package:realopt/constant/colors.dart';
-import 'package:realopt/model/property.dart';
-import '../model/note.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/models/property.dart';
+import 'package:realopt/models/note.dart';
 import 'dart:collection';
 
 
@@ -44,7 +44,7 @@ class _PropertiesExplorationScreenState extends State<PropertiesExplorationScree
 
   getRandomColor() {
     Random random = Random();
-    return backgroundColors[random.nextInt(backgroundColors.length)];
+    return AppColors.blueDarkColor;
   }
 
   void onSearchTextChanged(String searchText) {
@@ -194,14 +194,14 @@ class _PropertiesExplorationScreenState extends State<PropertiesExplorationScree
             onPressed: () {
               _drawerKey.currentState?.openDrawer();
             },
-            icon: const Icon(Icons.menu, color: AppColors.black)),
+            icon: const Icon(Icons.menu, color: AppColors.blackColor)),
         actions:  [
           const AppBarActionItems(),
           IconButton(
               onPressed: () {
                 _drawerKey.currentState?.openEndDrawer();
               },
-              icon:const Icon(Icons.more_vert, color: AppColors.black)
+              icon:const Icon(Icons.more_vert, color: AppColors.blackColor)
           )
         ],
       )
@@ -245,7 +245,7 @@ class _PropertiesExplorationScreenState extends State<PropertiesExplorationScree
                                 borderRadius: BorderRadius.circular(30),
                                 borderSide: const BorderSide(color: AppColors.white),
                               ),
-                              prefixIcon: const Icon(Icons.search, color: AppColors.black),
+                              prefixIcon: const Icon(Icons.search, color: AppColors.blackColor),
                               hintText: 'Search',
                               hintStyle: const TextStyle(color: AppColors.secondary, fontSize: 14)
                           ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:realopt/components/app_button.dart';
-import 'package:realopt/components/gap.dart';
-import 'package:realopt/components/header_title.dart';
-import 'package:realopt/components/shared/screen.dart';
+import 'package:realopt/components/home//gap.dart';
+import 'package:realopt/components/home/header_title.dart';
+import 'package:realopt/screens/shared_screen.dart';
 
 class GalleryGridScreen extends StatefulWidget {
   const GalleryGridScreen({super.key});
@@ -16,7 +15,7 @@ class _GalleryGridScreenState extends State<GalleryGridScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
-    return Screen(
+    return SharedScreen(
         isBackButton: true,
         isActions: true,
         isBottomTab: false,

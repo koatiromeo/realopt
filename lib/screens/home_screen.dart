@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:realopt/components/app_input.dart';
-import 'package:realopt/components/gap.dart';
+import 'package:realopt/components/home/app_input.dart';
+import 'package:realopt/components/home/gap.dart';
 import 'package:realopt/components/home/explore_card.dart';
 import 'package:realopt/components/home/featured_card.dart';
 import 'package:realopt/components/home/home_category.dart';
@@ -10,8 +10,8 @@ import 'package:realopt/components/home/property_card.dart';
 import 'package:realopt/components/home/row_title_home.dart';
 import 'package:realopt/components/home/top_agent.dart';
 import 'package:realopt/components/home/top_location.dart';
-import 'package:realopt/components/shared/screen.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/screens/shared_screen.dart';
+import 'package:realopt/constants/colors.dart';
 import 'package:realopt/screens/featured_screen.dart';
 import 'package:realopt/utils/route_name.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
     final width = MediaQuery.of(context).size.width * 1;
-    return Screen(
+    return SharedScreen(
       isBackButton: false,
       isBottomTab: true,
       child: Column(

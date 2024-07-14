@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/onboard_view.dart';
-import 'package:realopt/constant/colors.dart';
-import 'package:realopt/utils/route_name.dart';
-import 'package:realopt/utils/storage.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:realopt/components/home/onboard_view.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -38,23 +34,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               OnboardView(
                   controller: controller,
-                  title: "Find best place\nto stay in good price ",
+                  title: "Maximize Your Investment",
                   subtitle:
-                      "Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed.",
+                      "Our AI-based recommendation system helps you easily find the property that will maximize your profits on your real estate investments.",
                   path: "lib/assets/1.png",
                   isLastPage: isLastPage),
               OnboardView(
                   controller: controller,
-                  title: "Fast sell your property\nin just one click ",
+                  title: "Streamline Financial Planning",
                   subtitle:
-                      "Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed.",
+                      "Utilize our comprehensive financial simulation tools to plan and manage your investments with precision and confidence.",
                   path: "lib/assets/2.png",
                   isLastPage: isLastPage),
               OnboardView(
                   controller: controller,
-                  title: "Find perfect choice for\nyour future house ",
+                  title: "Simplify Property Management",
                   subtitle:
-                      "Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed.",
+                      "Manage investor profiles, generate essential documents and explore property options effortlessly with our intuitive platform.",
                   path: "lib/assets/3.png",
                   isLastPage: isLastPage),
             ],

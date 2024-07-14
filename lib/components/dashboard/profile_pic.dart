@@ -1,4 +1,4 @@
-import 'package:realopt/Constant/ColorGlobal.dart';
+import 'package:realopt/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePic extends StatelessWidget {
@@ -35,7 +35,7 @@ class ProfilePic extends StatelessWidget {
                 onPressed: () {},
                 child: const Icon(
                   Icons.edit,
-                  color: ColorGlobal.colorPrimaryDark,
+                  color: AppColors.colorPrimaryDark,
                 ),
               ),
             ),

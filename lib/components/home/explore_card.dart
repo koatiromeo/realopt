@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:realopt/components/gap.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/constants/colors.dart';
+import 'gap.dart';
 
 class ExploreCard extends StatelessWidget {
   final String title, rating, location, path;

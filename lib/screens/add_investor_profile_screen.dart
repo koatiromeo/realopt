@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:realopt/components/dashboard/ai_floating_action_button.dart';
-import 'package:realopt/components/dashboard/appBarActionItems.dart';
+import 'package:realopt/components/dashboard/app_bar_action_items.dart';
 import 'package:realopt/components/dashboard/header.dart';
-import 'package:realopt/components/dashboard/paymentDetailList.dart';
-import 'package:realopt/components/dashboard/sideMenu.dart';
+import 'package:realopt/components/dashboard/payment_detail_list.dart';
+import 'package:realopt/components/dashboard/side_menu.dart';
 import 'package:realopt/utils/responsive.dart';
 import 'package:realopt/utils/size_config.dart';
-import 'package:realopt/constant/colors.dart';
-import 'package:realopt/form/custom_text_form_field.dart';
-import 'package:realopt/form/date_picker_form_field.dart';
-import 'package:realopt/form/phone_form_field.dart';
-import 'package:realopt/form/responsive_form.dart';
-import 'package:realopt/form/searchable_dropdown.dart';
-import 'package:realopt/model/employment.dart';
-
-import '../model/actif.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/components/form/custom_text_form_field.dart';
+import 'package:realopt/components/form/date_picker_form_field.dart';
+import 'package:realopt/components/form/phone_form_field.dart';
+import 'package:realopt/components/form/responsive_form.dart';
+import 'package:realopt/components/form/searchable_dropdown.dart';
+import 'package:realopt/models/employment.dart';
+import 'package:realopt/models/actif.dart';
 
 
 
@@ -1725,14 +1724,14 @@ class _AddInvestorProfileScreenState extends State<AddInvestorProfileScreen> {
             onPressed: () {
               _drawerKey.currentState?.openDrawer();
             },
-            icon: const Icon(Icons.menu, color: AppColors.black)),
+            icon: const Icon(Icons.menu, color: AppColors.blackColor)),
         actions: [
           const AppBarActionItems(),
           IconButton(
               onPressed: () {
                 _drawerKey.currentState?.openEndDrawer();
               },
-              icon:const Icon(Icons.more_vert, color: AppColors.black)
+              icon:const Icon(Icons.more_vert, color: AppColors.blackColor)
           )
         ],
       )

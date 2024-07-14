@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:realopt/components/app_button.dart';
-import 'package:realopt/components/app_input.dart';
-import 'package:realopt/components/app_padding.dart';
-import 'package:realopt/components/gap.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/components/home/app_button.dart';
+import 'package:realopt/components/home/app_input.dart';
+import 'package:realopt/constants/colors.dart';
 
 class AccountLocationScreen extends StatefulWidget {
   const AccountLocationScreen({super.key});

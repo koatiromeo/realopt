@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/components/app_input.dart';
-import 'package:realopt/components/app_padding.dart';
-import 'package:realopt/components/frontApp/buyer_view.dart';
-import 'package:realopt/components/estate_view.dart';
-import 'package:realopt/components/gap.dart';
-import 'package:realopt/components/header_title.dart';
-import 'package:realopt/components/row_title.dart';
-import 'package:realopt/constant/colors.dart';
-import 'package:realopt/model/faq_items_model.dart';
+import 'package:realopt/components/home/app_input.dart';
+import 'package:realopt/components/home/app_padding.dart';
+import 'package:realopt/components/home/buyer_view.dart';
+import 'package:realopt/components/home/estate_view.dart';
+import 'package:realopt/components/home/gap.dart';
+import 'package:realopt/components/home/header_title.dart';
+import 'package:realopt/components/home/row_title.dart';
+import 'package:realopt/constants/colors.dart';
+import 'package:realopt/models/faq_items_model.dart';
 
 class FaqScreen extends StatefulWidget {
   const FaqScreen({super.key});

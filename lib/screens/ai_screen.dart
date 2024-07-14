@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:realopt/chatbot/screens/chat_screen.dart';
-import 'package:realopt/components/dashboard/appBarActionItems.dart';
+import 'chat_screen.dart';
+import 'package:realopt/components/dashboard/app_bar_action_items.dart';
 import 'package:realopt/components/dashboard/header_admin_dropdown.dart';
-import 'package:realopt/components/dashboard/paymentDetailList.dart';
-import 'package:realopt/components/dashboard/sideMenu.dart';
+import 'package:realopt/components/dashboard/payment_detail_list.dart';
+import 'package:realopt/components/dashboard/side_menu.dart';
 import 'package:realopt/utils/responsive.dart';
 import 'package:realopt/utils/size_config.dart';
-import 'package:realopt/constant/colors.dart';
+import 'package:realopt/constants/colors.dart';
 
 class AiScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
@@ -40,14 +40,14 @@ class AiScreen extends StatelessWidget {
               onPressed: () {
                 _drawerKey.currentState?.openDrawer();
               },
-              icon: const Icon(Icons.menu, color: AppColors.black)),
+              icon: const Icon(Icons.menu, color: AppColors.blackColor)),
           actions: [
             const AppBarActionItems(),
             IconButton(
                 onPressed: () {
                   _drawerKey.currentState?.openEndDrawer();
                 },
-                icon:const Icon(Icons.more_vert, color: AppColors.black)
+                icon:const Icon(Icons.more_vert, color: AppColors.blackColor)
             )
           ],
         )

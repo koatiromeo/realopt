@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:realopt/dashboard/ai.dart';
-import 'package:realopt/dashboard/style/colors.dart';
+import 'package:realopt/screens/ai_screen.dart';
+import 'package:realopt/constants/colors.dart';
 
 class AiFloatingActionButton extends StatefulWidget {
   const AiFloatingActionButton({super.key});
@@ -20,7 +20,7 @@ class _AiFloatingActionButtonState extends State<AiFloatingActionButton> {
             PageTransition(
                 type: PageTransitionType.rightToLeft,
                 duration: const Duration(milliseconds: 400),
-                child: AI()));
+                child: AiScreen()));
       },
       tooltip: 'AI',
       backgroundColor: AppColors.white,
@@ -32,7 +32,7 @@ class _AiFloatingActionButtonState extends State<AiFloatingActionButton> {
                 PageTransition(
                     type: PageTransitionType.rightToLeft,
                     duration: const Duration(milliseconds: 400),
-                    child: AI()));
+                    child: AiScreen()));
           }),
     );
   }
