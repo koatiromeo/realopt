@@ -54,8 +54,10 @@ To get started with RealOpt, follow these steps:
    cd RealOpt
    flutter pub get
    ```
+3. **Set Up Environment Variables:**
+   Create a `.env` file in the root directory and add your environment-specific variables.
 
-3. **Run the Application:**
+5. **Run the Application:**
    ```bash
    flutter run
    ```
